@@ -7,4 +7,11 @@ RSpec.describe User, type: :model do
       expect(user).to be_valid
     end
   end
+
+  # describe 'associations' do
+  #   it 'has many notes' do
+  #     user = create(:user)
+  #     expect(user.notes).to eq(user.notes)
+  #   end
+  # end
 end
