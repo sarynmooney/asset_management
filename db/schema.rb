@@ -10,9 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_02_27_144032) do
+ActiveRecord::Schema[8.0].define(version: 2026_02_27_154027) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "assets", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "asset_type", null: false
+    t.string "serial_number"
+    t.date "purchase_date"
+    t.bigint "company_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_assets_on_company_id"
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string "name", null: false
@@ -28,4 +39,6 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_27_144032) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "assets", "companies"
 end
