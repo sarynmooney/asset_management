@@ -8,10 +8,10 @@ RSpec.describe User, type: :model do
     end
   end
 
-  # describe 'associations' do
-  #   it 'has many notes' do
-  #     user = create(:user)
-  #     expect(user.notes).to eq(user.notes)
-  #   end
-  # end
+  describe 'associations' do
+    it 'has many notes' do
+      user = create(:user)
+      expect(user.notes).to include(create(:note, author: user))
+    end
+  end
 end
