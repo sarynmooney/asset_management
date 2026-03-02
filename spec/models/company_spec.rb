@@ -8,15 +8,15 @@ RSpec.describe Company, type: :model do
     end
   end
 
-  # describe 'associations' do
-  #   it 'has many assets' do
-  #     company = create(:company)
-  #     expect(company.assets).to eq(company.assets)
-  #   end
+  describe 'associations' do
+    it 'has many assets' do
+      company = create(:company)
+      expect(company.assets).to include(create(:asset, company: company))
+    end
  
-  #   it 'has many contacts' do
-  #     company = create(:company)
-  #     expect(company.contacts).to eq(company.contacts)
-  #   end
-  # end
+    it 'has many contacts' do
+      company = create(:company)
+      expect(company.contacts).to include(create(:contact, company: company))
+    end
+  end
 end
