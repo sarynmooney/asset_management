@@ -2,11 +2,10 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   namespace :api do
     namespace :v1 do
-      resources :companies, only: []
-        member do
-          get :dashboard
-        end
-      
+      resources :companies, only: [] do
+        get :dashboard, on: :member
+      end
+
       resources :assets, only: [:show]
       
       namespace :reports do
